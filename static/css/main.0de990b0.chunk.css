@@ -1,2 +1,0 @@
-*{padding:0;margin:0}body{background-color:orange}.container{display:flex;justify-content:center;align-items:center;height:100vh}#calculator{background-color:grey;display:grid;grid-template-areas:"small-display small-display small-display small-display" "display display display display" "clear clear divide multiply" "seven eight nine minus" "four five six plus" "one two three equals" "zero zero decimal equals";height:50%;width:30%;padding:1rem}
-/*# sourceMappingURL=main.0de990b0.chunk.css.map */
