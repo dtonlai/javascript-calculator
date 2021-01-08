@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
+//react-bootstrap
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -211,10 +217,11 @@ class App extends React.Component {
   
   render() {
     return(
+      <Container fluid>
       <div class='container'>
         
         <div id='calculator'>
-          
+          <Button></Button>
           <input id='small-display' style={{gridArea: 'small-display'}} value={this.state.smallDisplay}/>
           <input id='main-display' style={{gridArea: 'display'}} value={this.state.mainDisplay} />
           <button id='clear' style={{gridArea: 'clear'}} onClick={this.clearDisplays}>AC</button>
@@ -239,6 +246,7 @@ class App extends React.Component {
         </div>
         
       </div>
+      </Container>
     )
   }
 }
