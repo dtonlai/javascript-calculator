@@ -1,10 +1,19 @@
+//css variables
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+$press-start: "Press Start 2P", "monospace";
+$megaman-dark-blue: #1d70eb;
+$megaman-light-blue: #32e8d8;
+$megaman-white: #efefef;
+$megaman-yellow: #f0bc3b;
+
 * {
   padding: 0;
   margin: 0;
 }
 
 body {
-  background-color: orange;
+  background-color: $megaman-dark-blue;
 }
 
 .container {
@@ -15,7 +24,7 @@ body {
 }
 
 #calculator {
-  background-color: gray;
+  background-color: $megaman-light-blue;
   display: grid;
   grid-template-areas:
     "small-display small-display small-display small-display"
@@ -25,7 +34,31 @@ body {
     "four five six plus"
     "one two three equals"
     "zero zero decimal equals";
+  row-gap: 2.5px;
+  column-gap: 2.5px;
   height: 50%;
   width: 30%;
   padding: 1rem;
+  border-radius: 10px;
+
+  button,
+  input {
+    font-family: $press-start;
+    border: none;
+  }
+
+  button {
+    background-color: $megaman-dark-blue;
+    color: $megaman-yellow;
+    border-radius: 5px;
+    border: none;
+  }
+
+  #small-display,
+  #main-display {
+    background-color: $megaman-white;
+    padding: 0.5em;
+    text-align: right;
+    border-radius: 5px;
+  }
 }
