@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 
 //react-bootstrap
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
@@ -126,7 +125,7 @@ class App extends React.Component {
         case '0':
           this.setState({
             mainDisplay: this.state.mainDisplay + '.',
-            smallDisplay: this.state.smallDisplay.slice(0, -1) + '0' + '.'
+            smallDisplay: this.state.smallDisplay.slice(0, -1) + '0.'
           });
           break;
         //If mainDisplay is showing operator, add '0.' to start decimal
@@ -173,7 +172,7 @@ class App extends React.Component {
     let operatorValue = document.getElementById(event.target.id).value;
     this.clearMainDisplay();
     
-    if (this.state.answer != '' && this.state.smallDisplay == '') {
+    if (this.state.answer !== '' && this.state.smallDisplay === '') {
       this.setState({
         smallDisplay: this.state.answer + operatorValue
       })      
@@ -207,6 +206,7 @@ class App extends React.Component {
   */
   
   equals() {
+    // eslint-disable-next-line
     let answer = eval(this.state.smallDisplay);    
     this.setState({
       smallDisplay: '',
@@ -218,34 +218,29 @@ class App extends React.Component {
   render() {
     return(
       <Container fluid>
-      <div class='container'>
-        
-        <div id='calculator'>
-          <Button></Button>
-          <input id='small-display' style={{gridArea: 'small-display'}} value={this.state.smallDisplay}/>
-          <input id='main-display' style={{gridArea: 'display'}} value={this.state.mainDisplay} />
-          <button id='clear' style={{gridArea: 'clear'}} onClick={this.clearDisplays}>AC</button>
-          <button id='divide' style={{gridArea: 'divide'}} onClick={this.inputOperator} value='/'>/</button>
-          <button id='multiply' style={{gridArea: 'multiply'}} onClick={this.inputOperator} value='*'>X</button>
-          <button id='seven' style={{gridArea: 'seven'}} onClick={this.inputNumber} value='7'>7</button>
-          <button id='eight' style={{gridArea: 'eight'}} onClick={this.inputNumber} value='8'>8</button>
-          <button id='nine' style={{gridArea: 'nine'}} onClick={this.inputNumber} value='9'>9</button>
-          <button id='minus' style={{gridArea: 'minus'}} onClick={this.inputOperator} value='-'>-</button>
-          <button id='four' style={{gridArea: 'four'}} onClick={this.inputNumber} value='4'>4</button>
-          <button id='five' style={{gridArea: 'five'}} onClick={this.inputNumber} value='5'>5</button>
-          <button id='six' style={{gridArea: 'six'}} onClick={this.inputNumber} value='6'>6</button>
-          <button id='plus' style={{gridArea: 'plus'}} onClick={this.inputOperator} value='+'>+</button>
-          <button id='one' style={{gridArea: 'one'}} onClick={this.inputNumber} value='1'>1</button>
-          <button id='two' style={{gridArea: 'two'}} onClick={this.inputNumber} value='2'>2</button>
-          <button id='three' style={{gridArea: 'three'}} onClick={this.inputNumber} value='3'>3</button>
-          <button id='zero' style={{gridArea: 'zero'}} onClick={this.inputZero} value='0'>0</button>
-          <button id='decimal' style={{gridArea: 'decimal'}} onClick={this.inputDecimal} value='.'>.</button>
-          <button id='equals' style={{gridArea: 'equals'}} onClick={this.equals}>=</button>
-
-
-        </div>
-        
-      </div>
+        <Col>
+          <Container id='calculator'>
+            <input id='small-display' style={{gridArea: 'small-display'}} value={this.state.smallDisplay}/>
+            <input id='main-display' style={{gridArea: 'display'}} value={this.state.mainDisplay} />
+            <button id='clear' style={{gridArea: 'clear'}} onClick={this.clearDisplays}>AC</button>
+            <button id='divide' style={{gridArea: 'divide'}} onClick={this.inputOperator} value='/'>/</button>
+            <button id='multiply' style={{gridArea: 'multiply'}} onClick={this.inputOperator} value='*'>X</button>
+            <button id='seven' style={{gridArea: 'seven'}} onClick={this.inputNumber} value='7'>7</button>
+            <button id='eight' style={{gridArea: 'eight'}} onClick={this.inputNumber} value='8'>8</button>
+            <button id='nine' style={{gridArea: 'nine'}} onClick={this.inputNumber} value='9'>9</button>
+            <button id='minus' style={{gridArea: 'minus'}} onClick={this.inputOperator} value='-'>-</button>
+            <button id='four' style={{gridArea: 'four'}} onClick={this.inputNumber} value='4'>4</button>
+            <button id='five' style={{gridArea: 'five'}} onClick={this.inputNumber} value='5'>5</button>
+            <button id='six' style={{gridArea: 'six'}} onClick={this.inputNumber} value='6'>6</button>
+            <button id='plus' style={{gridArea: 'plus'}} onClick={this.inputOperator} value='+'>+</button>
+            <button id='one' style={{gridArea: 'one'}} onClick={this.inputNumber} value='1'>1</button>
+            <button id='two' style={{gridArea: 'two'}} onClick={this.inputNumber} value='2'>2</button>
+            <button id='three' style={{gridArea: 'three'}} onClick={this.inputNumber} value='3'>3</button>
+            <button id='zero' style={{gridArea: 'zero'}} onClick={this.inputZero} value='0'>0</button>
+            <button id='decimal' style={{gridArea: 'decimal'}} onClick={this.inputDecimal} value='.'>.</button>
+            <button id='equals' style={{gridArea: 'equals'}} onClick={this.equals}>=</button>
+          </Container>
+        </Col>
       </Container>
     )
   }
