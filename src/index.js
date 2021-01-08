@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 
 //react-bootstrap
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
@@ -173,7 +172,7 @@ class App extends React.Component {
     let operatorValue = document.getElementById(event.target.id).value;
     this.clearMainDisplay();
     
-    if (this.state.answer != '' && this.state.smallDisplay == '') {
+    if (this.state.answer !== '' && this.state.smallDisplay === '') {
       this.setState({
         smallDisplay: this.state.answer + operatorValue
       })      
@@ -205,7 +204,7 @@ class App extends React.Component {
     return;
   }
   */
-  
+
   equals() {
     let answer = eval(this.state.smallDisplay);    
     this.setState({
@@ -218,10 +217,8 @@ class App extends React.Component {
   render() {
     return(
       <Container fluid>
-      <div class='container'>
-        
-        <div id='calculator'>
-          <Button></Button>
+        <Col>
+        <Container id='calculator'>
           <input id='small-display' style={{gridArea: 'small-display'}} value={this.state.smallDisplay}/>
           <input id='main-display' style={{gridArea: 'display'}} value={this.state.mainDisplay} />
           <button id='clear' style={{gridArea: 'clear'}} onClick={this.clearDisplays}>AC</button>
@@ -241,11 +238,8 @@ class App extends React.Component {
           <button id='zero' style={{gridArea: 'zero'}} onClick={this.inputZero} value='0'>0</button>
           <button id='decimal' style={{gridArea: 'decimal'}} onClick={this.inputDecimal} value='.'>.</button>
           <button id='equals' style={{gridArea: 'equals'}} onClick={this.equals}>=</button>
-
-
-        </div>
-        
-      </div>
+        </Container>
+        </Col>
       </Container>
     )
   }

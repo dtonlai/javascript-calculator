@@ -16,11 +16,18 @@ body {
   background-color: $megaman-dark-blue;
 }
 
-.container {
+.container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 #calculator {
@@ -37,7 +44,7 @@ body {
   row-gap: 2.5px;
   column-gap: 2.5px;
   height: 50%;
-  width: 30%;
+  //width: 30%;
   padding: 1rem;
   border-radius: 10px;
 
